@@ -1,7 +1,12 @@
-from django.urls import path
+from django.urls import path,re_path
 from . import views
-
+from django.conf import settings
+from django.views.static import serve
 urlpatterns = [
+  re_path(r"^images/(?P<path>.*)$", serve, {'document_root': settings.MEDIA_ROOT}),
+    re_path(r"^static/(?P<path>.*)$", serve, {'document_root': settings.STATIC_ROOT}),
+
+
     # Home and Collections
     path('', views.home, name='index'),
     path('collections/', views.collections, name='collections'),

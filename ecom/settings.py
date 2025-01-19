@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.1/ref/settings/
 """
 
+import os
 from pathlib import Path
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -22,7 +23,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-mon^8c^-m&s#l4q#wj#2^3%q*fvyvo3m^+j17wri)-^yv!8rjs'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['127.0.0.1', 'localhost', '192.168.1.7','192.168.43.229']
 
@@ -129,9 +130,8 @@ USE_TZ = True
 STATIC_URL = '/static/'
 MEDIA_URL = '/images/'
 MEDIA_ROOT = BASE_DIR /'static/'
-STATICFILES_DIRS=[
-BASE_DIR/'static'
-]
+
+
 AUTHENTICATION_BACKENDS = [
     # Needed to login by username in Django admin, regardless of `allauth`
     'django.contrib.auth.backends.ModelBackend',
@@ -163,3 +163,12 @@ AUTHENTICATION_BACKENDS = [
 
 TIME_ZONE = 'Asia/Kolkata'  # Replace with your timezone
 USE_TZ = True
+
+if DEBUG:
+    STATICFILES_DIRS=[
+BASE_DIR/'static'
+]
+else:
+    STATIC_ROOT=os.path.join(BASE_DIR,'static')
+
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
