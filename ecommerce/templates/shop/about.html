@@ -1,0 +1,155 @@
+{% extends 'shop/index.html' %}
+{% load static %}
+{% block title %}
+About Us | Raju Electricals and Hardware
+{% endblock title %}
+
+{% block content %}
+
+<section class="bg-light py-5 my-5">
+    <div class="container">
+        <div class="row mb-4">
+            <div class="col-12">
+                <h4 class="mb-3 text-primary">About Raju Electricals and Hardware</h4>
+                <hr class="my-2" style="border-color:#b8bfc2;">
+            </div>
+        </div>
+
+        <div class="row mb-5">
+            <div class="col-md-6">
+                {% if banner %}
+                    <img src="{{ banner.bannerAbout.url }}" class="img-fluid rounded mb-4" alt="Shop Image">
+               
+                {% endif %}
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-12">
+                <h5 class="text-primary">Shop Name:</h5>
+                <p>Raju Electricals and Hardware</p>
+            </div>
+            <div class="col-12">
+                <h5 class="text-primary">GST Number:</h5>
+                <p>33BJLPN3590D1Z7</p>
+            </div>
+            <div class="col-12">
+                <h5 class="text-primary">Contact Details:</h5>
+                <p>Email: rajuelectricalsandhardwareshop@gmail.com</p>
+                <p>Phone: +91 8122432243| +91 7010710085</p>
+                <p>Address: 39A/81, Salai Street, Kanchipuram, India</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Developers Info Section -->
+<section class="bg-light py-5 my-5">
+    <div class="container">
+        <div class="row mb-4">
+            <div class="col-12">
+                <h4 class="mb-3 text-primary">Contact Developers</h4>
+                <hr class="my-2" style="border-color:#b8bfc2;">
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-4 text-center">
+                <img src="{% static 'images/HACKANDSLASH.png' %}" class="developer-logo img-fluid mb-4" alt="Developer Logo">
+            </div>
+            <div class="col-md-8">
+                <h5 class="text-primary">Company Name:</h5>
+                <p>Hackandslash Studios </p>
+                <h5 class="text-primary">Developers:</h5>
+                <p>Tamilselvan A K, Vipin B</p>
+                <h5 class="text-primary">Contact Details:</h5>
+                <p>Email: studioshackandslash@gmail.com</p>
+                <p>Phone: +91-7708253513 | +91 8838269828</p>
+                <p>Address: 72 D, SVN Pillai Street,Kanchipuram, India</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+    /* General Styling */
+    body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    h4 {
+        font-size: 1.75rem;
+        font-weight: 600;
+    }
+
+    h5 {
+        font-size: 1.2rem;
+        font-weight: bold;
+    }
+
+    /* Image Styling */
+    .img-fluid {
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+    }
+
+    .developer-logo {
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;  /* Ensure the image appears as a circle */
+        object-fit: cover;   /* Ensures the image is not distorted */
+    }
+
+    /* Container Styling */
+    .container {
+        max-width: 1140px;
+    }
+
+    /* Text Styling */
+    p {
+        font-size: 1rem;
+        color: #333;
+    }
+
+    /* Footer Styling */
+    footer {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        background-color: #f8f9fa;
+        padding: 15px 0;
+        text-align: center;
+        box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    footer p {
+        margin: 0;
+        font-size: 0.9rem;
+        color: #6c757d;
+    }
+
+    /* Responsive Adjustments */
+    @media (max-width: 767px) {
+        .col-md-6,
+        .col-md-4,
+        .col-md-8 {
+            margin-bottom: 20px;
+        }
+
+        h4 {
+            font-size: 1.5rem;
+        }
+
+        h5 {
+            font-size: 1.1rem;
+        }
+
+        p {
+            font-size: 0.95rem;
+        }
+    }
+</style>
+
+{% endblock content %}

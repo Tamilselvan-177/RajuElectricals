@@ -1,0 +1,66 @@
+{% load static %}
+
+<!-- Carousel for mobile view -->
+<div id="carouselExampleIndicatorsMobile" class="carousel slide d-block d-md-none" data-bs-ride="carousel">
+    <div class="carousel-indicators">
+        {% for image in images %}
+        <button type="button" data-bs-target="#carouselExampleIndicatorsMobile" data-bs-slide-to="{{ forloop.counter0 }}" class="{% if forloop.first %}active{% endif %}" aria-current="{% if forloop.first %}true{% else %}false{% endif %}" aria-label="Slide {{ forloop.counter }}"></button>
+        {% endfor %}
+    </div>
+    <div class="carousel-inner">
+        {% for image in images %}
+        <div class="carousel-item {% if forloop.first %}active{% endif %}">
+            <img src="{{ image.image.url }}" class="d-block w-100 img-fluid" alt="...">
+        </div>
+        {% endfor %}
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicatorsMobile" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicatorsMobile" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+    </button>
+</div>
+
+<!-- Carousel for larger devices -->
+<div id="carouselExampleIndicatorsLarge" class="carousel slide d-none d-md-block" data-bs-ride="carousel">
+    <div class="carousel-indicators">
+        {% for image in images %}
+        <button type="button" data-bs-target="#carouselExampleIndicatorsLarge" data-bs-slide-to="{{ forloop.counter0 }}" class="{% if forloop.first %}active{% endif %}" aria-current="{% if forloop.first %}true{% else %}false{% endif %}" aria-label="Slide {{ forloop.counter }}"></button>
+        {% endfor %}
+    </div>
+    <div class="carousel-inner">
+        {% for image in images %}
+        <div class="carousel-item {% if forloop.first %}active{% endif %}">
+            <img src="{{ image.image.url }}" class="d-block w-100 img-fluid" alt="...">
+        </div>
+        {% endfor %}
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicatorsLarge" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicatorsLarge" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+    </button>
+</div>
+
+<style>
+    /* Ensures mobile carousel images maintain aspect ratio */
+    #carouselExampleIndicatorsMobile .carousel-item img {
+        object-fit: cover;
+        width: 100%;
+        height: auto;
+    }
+
+    /* For large screens: Limit the image size to avoid becoming too large */
+    @media (min-width: 1200px) {
+        #carouselExampleIndicatorsLarge .carousel-item img {
+            max-width: 80%;  /* Adjust the value as per your design */
+            margin: 0 auto;
+        }
+    }
+</style>
