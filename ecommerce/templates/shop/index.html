@@ -1,4 +1,5 @@
 {% load static %}
+
 <!doctype html>
 <html lang="en">
     <head>
@@ -7,6 +8,7 @@
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="icon" type="image/png" href="{% static 'images/king.png' %}">
 
         <!-- Bootstrap CSS v5.2.1 -->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
@@ -96,6 +98,33 @@
         </footer>
         
         <style>
+             .logo-container {
+        width: 60px; /* Adjust based on the desired size of the logo */
+        height: 60px;
+        overflow: hidden;
+    }
+
+    .logo-container img {
+        width: 100%; /* Ensure the image fills the container */
+        height: 100%;
+        object-fit: contain; /* Ensure transparent images are properly sized */
+        background: none; /* Remove any background color */
+        border: none; /* Ensure no borders are applied */
+        padding: 0; /* Remove any internal padding */
+    }
+
+    /* Optional hover effect to give a dynamic touch */
+    .logo-container:hover img {
+        transform: scale(1.1); /* Slight zoom on hover */
+        transition: transform 0.3s ease;
+    }
+    @media (max-width: 768px) {
+    .logo-container {
+        width: 40px;
+        height: 40px;
+    }
+}
+
           /* Footer Styling */
           footer {
             position: relative;

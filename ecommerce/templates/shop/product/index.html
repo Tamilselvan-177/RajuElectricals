@@ -1,10 +1,11 @@
 {% extends 'shop/index.html' %}
-
+{% load static %}
 {% block title %}
 Raju Electricals and Hardware | Online Shopping
 {% endblock title %}
 
 {% block content %}
+
 <section class="bg-light py-5 my-5">
   <div class="container">
     <div class="row mb-4">
@@ -28,16 +29,23 @@ Raju Electricals and Hardware | Online Shopping
       {% for item in products %}
       <div class="product-card">
         <div class="card">
+          <a href="{% url 'project_details' category.name item.name %}">
+
           {% if item.product_image %}
           <div class="image-container">
             <img src="{{ item.product_image.url }}" class="card-img-top" alt="Product Image">
           </div>
+          <div class="logo-container position-absolute top-0 start-0 p-2">
+            <img src="{% static 'images/king.png' %}" alt="Logo" class="logo-image">
+        </div>
           {% else %}
           <div class="image-container">
             <img src="/path/to/placeholder-image.jpg" class="card-img-top" alt="Placeholder Image">
           </div>
+          <div class="logo-container position-absolute top-0 start-0 p-2">
+            <img src="{% static 'images/king.png' %}" alt="Logo" class="logo-image">
+        </div>
           {% endif %}
-          <a href="{% url 'project_details' category.name item.name %}">
             <div class="card-body">
               <h5 class="card-title text-primary">{{ item.name }}</h5>
               <p class="card-text">

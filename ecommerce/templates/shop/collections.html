@@ -3,6 +3,7 @@
 Categories | Raju Electricals and Hardware
 {% endblock title %}
 {% block content %}
+{% load static %}
 
 <style>
   /* General Styling */
@@ -148,6 +149,9 @@ Categories | Raju Electricals and Hardware
       {% for items in categories %}
       <div class="col-md-6 col-lg-4 mb-4">
         <div class="card">
+          <div class="logo-container position-absolute top-0 start-0 p-2">
+            <img src="{% static 'images/king.png' %}" alt="Logo" class="logo-image">
+        </div>
           <img src="{{ items.image.url }}" class="card-img-top" alt="{{ items.name }}">
           <a href="{% url 'collectionsview' items.name %}" class="stretched-link">
             <div class="card-body text-center">
